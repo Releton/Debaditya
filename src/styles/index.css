@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    ::selection{
+        background-color: #00ADB5;
+    }
+
+    .changing::before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        border-left: 3px solid #eeeeee;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #222831;
+        opacity: 1;
+        border-radius: 3px;
+        animation: animate-text 3s steps(12) infinite;
+    }
+    @keyframes animate-text{
+        10%, 30%, 50%, 70%, 90%{
+            border-color: #eeeeee00;
+        }
+        20%,80%{
+            border-color: #eeeeee;
+        }
+        40%, 60%{
+            left: calc(100% + 4px);
+            border-color: #eeeeee;
+        }
+        100%{
+            left: 0;
+            border-color: #eeeeee;
+        }
+    }
+    .fade{
+        -webkit-mask-image: linear-gradient(#000, rgba(0,0,0,0.1));
+    }
+}
